@@ -49,11 +49,12 @@ void loop(){
 //   }
 //}
 void inout(int tdelay){
-   for(int i = 0; i < 6; i++){
-     fadeon(pins[i],tdelay);
+  int count = 0;
+   while( count++ < 6 && digitalRead(A0) == HIGH){
+     fadeon(pins[count],tdelay);
    }
-   for(int i = 5; i >= 0; i--){
-      fadeoff(pins[i], tdelay);
+   while(--count >= 0){
+      fadeoff(pins[count], tdelay);
 //      digitalWrite(pins[i], LOW);
    }
 }
